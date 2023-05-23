@@ -2,6 +2,8 @@ import express from "express"
 import "dotenv/config"
 import { json } from "body-parser"
 import appDataSource from "./utils/POSTGRES"
+
+import userRoute from "./routes/user.route"
 const cors = require("cors")
 
 const app = express()
@@ -18,7 +20,7 @@ app
       .then((res: any) => {
         console.log("Connected to the database ! ")
         //middlewares 
-
+        app.use("/me", userRoute)
         
       })
       .catch((e: any) => {
