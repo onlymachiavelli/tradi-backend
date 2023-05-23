@@ -18,8 +18,12 @@ const CreateCategory :exp.RequestHandler= async (req, res) =>{
         return 
     }
     const datas = req.body
+    if (!datas.title  || !datas.description ){
+        res.status(400).send({message : "Bad request"})
+        return 
+    }
     const id = decoded.id
-    const now : any  = format.format(new Date(), 'YYYY/MM/DD HH:mm:ss')
+    const now : any  = format.format(new Date(), 'YYYY-MM-DD')
 
     const cat : any = new Category
 
@@ -28,7 +32,8 @@ const CreateCategory :exp.RequestHandler= async (req, res) =>{
     cat.logo = datas.logo ? datas.logo : null
     cat.created_at = now
     cat.updated_at = now
-    cat.user = id
+
+    console.log(cat.create_at)
     
     Services.saveCat(cat).then(resp =>{
         res.status(201).send("Category has been added to the database ")
