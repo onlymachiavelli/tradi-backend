@@ -22,6 +22,9 @@ class Users extends TypeORM.BaseEntity {
     @TypeORM.Column({nullable : false, unique: true })
     email : string
 
+
+    @TypeORM.Column()
+    fullname : string 
     @TypeORM.Column({nullable : false})
     password : string
 
