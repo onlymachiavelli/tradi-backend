@@ -5,6 +5,7 @@ import appDataSource from "./utils/POSTGRES"
 //import cookie-parser 
 const cookieParser = require("cookie-parser")
 import userRoute from "./routes/user.route"
+import CatRouter from "./routes/category.route"
 const cors = require("cors")
 
 
@@ -26,6 +27,7 @@ app
         console.log("Connected to the database ! ")
         //middlewares 
         app.use("/me", userRoute)
+        app.use("/category", CatRouter)
         
       })
       .catch((e: any) => {
