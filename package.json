@@ -1,5 +1,5 @@
 {
-  "name":"ecom",
+  "name": "ecom",
   "version": "1.0.0",
   "description": "The backend of ecomerce platform",
   "main": "src/app.ts",
@@ -17,6 +17,7 @@
     "bcrypt": "^5.0.1",
     "body": "^5.1.0",
     "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "date-and-time": "^2.4.1",
     "dotenv": "^16.0.2",

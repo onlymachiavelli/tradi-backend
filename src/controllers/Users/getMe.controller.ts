@@ -6,6 +6,7 @@ const GetMe :exp.RequestHandler = async (req, res) =>{
     //get the token 
 
     const token : any = req.cookies.token
+    console.log(token)
     if (!token) {
 
         res.status(401).send("Unauthorized ! ")
@@ -25,10 +26,9 @@ const GetMe :exp.RequestHandler = async (req, res) =>{
         res.status(404).send("User not found ! ")
         return 
     }
-
     res.status(200).send(user)
     
-    
+
 }
 
 
