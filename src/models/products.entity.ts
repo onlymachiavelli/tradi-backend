@@ -20,8 +20,7 @@ class Products extends TypeORM.BaseEntity {
     @TypeORM.Column()
     price : number 
 
-    @TypeORM.Column()
-    qte : number 
+
 
     @TypeORM.Column()
     created_at : Date
