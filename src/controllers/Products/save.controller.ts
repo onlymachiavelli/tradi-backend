@@ -3,7 +3,7 @@ import * as exp from 'express'
 import JWT from 'jsonwebtoken'
 import * as usr from './../../services/user.services'
 import Products from '../../models/products.entity'
-
+import * as cat from './../../services/category.services'
 import format from 'date-and-time'
 const Save:exp.RequestHandler = async (req, res) =>{
     //get the token 
@@ -44,6 +44,13 @@ const Save:exp.RequestHandler = async (req, res) =>{
     prod.updated_at = now
     prod.image = datas.image 
 
+
+    const category : any = await cat.getCat(datas.cat)
+    if (!category) {
+        res.status(400).send("Please provide a valid category")
+        return
+    }
+    prod.category = category
 
     Services.Save(prod).then(resp =>{
         res.status(200).send("Product is added")

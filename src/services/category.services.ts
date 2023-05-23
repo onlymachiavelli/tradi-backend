@@ -7,7 +7,11 @@ const saveCat = async (datas : any ) =>{
 
 
 const getCat = async (id : any) =>{
-    return await Category.findOne(id)
+    return await Category.findOne({
+        where:{
+            id : id 
+        }
+    })
 }
 const getCats = async (id : any) =>{
     return await Category.find(id)
