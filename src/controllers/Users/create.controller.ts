@@ -7,7 +7,7 @@ const CreateUser : exp.RequestHandler = async (req, res) =>{
 
     const datas : any = req.body
 
-    if (!datas.username || !datas.role || !datas.email || !datas.phone || !datas.password || !datas.fullname) {
+    if (!datas.username || !datas.role || !datas.email || !datas.phone || !datas.password || !datas.fullname ||!datas.password) {
         
         res.status(400).send("Invalid Given Datas ")
         return 
