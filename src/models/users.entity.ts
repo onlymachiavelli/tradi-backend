@@ -1,5 +1,5 @@
 import * as TypeORM from 'typeorm'
-
+import Products from './products.entity'
 
 
 //create enum 
@@ -39,6 +39,10 @@ class Users extends TypeORM.BaseEntity {
 
     @TypeORM.Column()
     updated_at : Date
+
+
+    @TypeORM.OneToMany(() => Products, product => product.addedby)
+    products : Products[]
 
 }
 

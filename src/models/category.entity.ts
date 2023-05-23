@@ -1,5 +1,5 @@
 import * as TypeORM from 'typeorm'
-
+import Products from './products.entity'
 
 @TypeORM.Entity()
 class Category extends TypeORM.BaseEntity {
@@ -15,13 +15,17 @@ class Category extends TypeORM.BaseEntity {
     @TypeORM.Column({nullable : true, })
     logo : string 
 
-    
+
 
     @TypeORM.Column()
     created_at : Date
 
     @TypeORM.Column()
     updated_at : Date
+
+
+    @TypeORM.OneToMany(() => Products, product => product.category)
+    products : Products[]
 
 }
 
