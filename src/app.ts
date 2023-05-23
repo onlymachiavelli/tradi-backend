@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser")
 import userRoute from "./routes/user.route"
 import CatRouter from "./routes/category.route"
 import ProdRouter from "./routes/product.route"
+import OrderRouter from "./routes/order.route"
 const cors = require("cors")
 
 
@@ -30,6 +31,7 @@ app
         app.use("/me", userRoute)
         app.use("/category", CatRouter)
         app.use("/product", ProdRouter)
+        app.use("/orders", OrderRouter)
         
       })
       .catch((e: any) => {
