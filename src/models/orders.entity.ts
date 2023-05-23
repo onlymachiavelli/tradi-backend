@@ -26,6 +26,13 @@ class Orders extends TypeORM.BaseEntity{
     @TypeORM.Column({default : false, nullable : false })
     reviewd : boolean 
 
+    @TypeORM.Column()
+    created_at : Date
+
+    @TypeORM.Column()
+    updated_at : Date
+
+
 }
 
 export default Orders

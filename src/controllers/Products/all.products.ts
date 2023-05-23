@@ -28,6 +28,19 @@ const GetAll:exp.RequestHandler = async (req,res) =>{
         res.status(200).send(response)
         return
     }
+
+    if (req.query.id) {
+        const id = req.query.id as string 
+        datas.forEach((element : any) => {
+            if (element.id == id) {
+                res.status(200).send(element)
+                return
+            }
+        }
+        )
+        res.status(404).send("Not Found")
+        return
+    }
     res.status(200).send(datas)
 }
 
