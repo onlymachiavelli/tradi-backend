@@ -1,6 +1,6 @@
 import * as exp from 'express'
 import  * as Services from './../../services/order.services'
-
+import * as prod from './../../services/products.services'
 import JWT from 'jsonwebtoken' 
 const GetAll:exp.RequestHandler = async (req,res) =>{
 
@@ -20,7 +20,23 @@ const GetAll:exp.RequestHandler = async (req,res) =>{
     //get the datas !
     const orders : any = await Services.GetAll()
 
-    res.status(200).send(orders)
+    let response : any = []
+    orders.forEach(async (element : any) => {
+    
+        let datas = element
+        datas.products = [] 
+        let ids = datas.list.split(",")
+        ids.forEach(async (id : any) => {
+            let product = await prod.Get(Number(id))
+            datas.products.push(product)
+        })
+        
+        response.push(datas)
+    })
+
+    
+
+    res.status(200).send(response)
 
 }
 

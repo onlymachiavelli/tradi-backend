@@ -9,9 +9,17 @@ const GetAll = async () =>{
     return await Products.find()
 }
 
+const Get = async (id: any) =>{
+    return await Products.findOne({
+        where:{
+            id : id 
+        }
+    })
+}
 
 
 export {
     Save , 
-    GetAll
+    GetAll,
+    Get
 }
