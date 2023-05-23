@@ -17,7 +17,7 @@ class Products extends TypeORM.BaseEntity {
     @TypeORM.Column({nullable : true, })
     image : string 
 
-    @TypeORM.Column()
+    @TypeORM.Column('decimal', { precision: 10, scale: 2 })
     price : number 
 
 

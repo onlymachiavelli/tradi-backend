@@ -45,7 +45,7 @@ const Save:exp.RequestHandler = async (req, res) =>{
     prod.image = datas.image 
 
 
-    const category : any = await cat.getCat(datas.cat)
+    const category : any = await cat.getCat(datas.category)
     if (!category) {
         res.status(400).send("Please provide a valid category")
         return
