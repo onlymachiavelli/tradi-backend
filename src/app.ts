@@ -6,6 +6,7 @@ import appDataSource from "./utils/POSTGRES"
 const cookieParser = require("cookie-parser")
 import userRoute from "./routes/user.route"
 import CatRouter from "./routes/category.route"
+import ProdRouter from "./routes/product.route"
 const cors = require("cors")
 
 
@@ -28,6 +29,7 @@ app
         //middlewares 
         app.use("/me", userRoute)
         app.use("/category", CatRouter)
+        app.use("/product", ProdRouter)
         
       })
       .catch((e: any) => {
