@@ -34,7 +34,7 @@ const Auth :exp.RequestHandler = async (req, res) =>{
     console.log(isValid)
     const token = JWT.sign({id : user.id, role : user.role}, process.env.JWT_SECRET as string)
     res.cookie("token", token, {httpOnly : true, maxAge : 1000*60*60*24*7})
-    res.status(200).send(user)
+    res.status(200).send(token)
 } 
 
 export default Auth

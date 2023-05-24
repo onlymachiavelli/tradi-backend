@@ -6,9 +6,11 @@ import Category from '../../models/category.entity'
 
 const CreateCategory :exp.RequestHandler= async (req, res) =>{
     //get the token 
-    const token = req.cookies.token 
+    const token : any = req.headers.authorization?.split(" ")[1]
+    console.log(token)
     if (!token) {
-        res.status(401).json({message : "unauthorized"})
+
+        res.status(401).send("Unauthorized ! ")
         return 
     }
     

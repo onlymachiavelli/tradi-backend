@@ -7,11 +7,12 @@ import * as cat from './../../services/category.services'
 import format from 'date-and-time'
 const Save:exp.RequestHandler = async (req, res) =>{
     //get the token 
-    const token = req.cookies.token 
-
+    const token : any = req.headers.authorization?.split(" ")[1]
+    console.log(token)
     if (!token) {
-        res.status(401).send("You are not authorized")
-        return
+
+        res.status(401).send("Unauthorized ! ")
+        return 
     }
 
     

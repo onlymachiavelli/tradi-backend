@@ -5,11 +5,13 @@ import JWT from 'jsonwebtoken';
 
 const GetAll: express.RequestHandler = async (req, res) => {
   // Verify token
-  const token = req.cookies.token;
-  if (!token) {
-    res.status(401).send('Unauthorized');
-    return;
-  }
+  const token : any = req.headers.authorization?.split(" ")[1]
+    console.log(token)
+    if (!token) {
+
+        res.status(401).send("Unauthorized ! ")
+        return 
+    }
 
   const decoded: any = JWT.verify(token, process.env.JWT_SECRET as string);
   if (!decoded) {

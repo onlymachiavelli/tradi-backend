@@ -5,7 +5,8 @@ import JWT from 'jsonwebtoken'
 const GetMe :exp.RequestHandler = async (req, res) =>{
     //get the token 
 
-    const token : any = req.cookies.token
+    //get the token with the bearer 
+    const token : any = req.headers.authorization?.split(" ")[1]
     console.log(token)
     if (!token) {
 

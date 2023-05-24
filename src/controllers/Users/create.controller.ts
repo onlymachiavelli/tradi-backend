@@ -35,7 +35,7 @@ const CreateUser : exp.RequestHandler = async (req, res) =>{
     await Users.save(user).then(resp=>{
         const token = JWT.sign({id : resp.id, role : resp.role}, process.env.JWT_SECRET as string)
         res.cookie("token", token, {httpOnly : true, maxAge : 1000*60*60*24*7})
-        res.status(201).send(resp)
+        res.status(201).send(token)
     })
     .catch(err=>{
         res.status(500).send("Internal Error ! please contact the owner ASAP")
