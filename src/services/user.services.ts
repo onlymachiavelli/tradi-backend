@@ -8,7 +8,7 @@ const CreateUser = async (datas : any) => {
 
 const getOne = async (field : any, target : any) =>{
     return Users.findOne({
-        select:["created_at", "email", "id", "phone", "picture", "role","username","updated_at"], 
+        select:["created_at", "email", "id", "phone", "picture", "role","username","updated_at", "fullname"], 
         where : {
             [field] : target
         }
